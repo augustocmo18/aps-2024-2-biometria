@@ -13,12 +13,15 @@ video_capture = cv2.VideoCapture(0)
 
 increment = 1
 numMostras = 100
-id = input('Digite seu identificador: ')
+id = input('Digite seu identificador do usuario: ')
+name = input('Digite o nome desse usuario: ')
+sec_id = input('Digite o nivel de segurança desse usuario: ')
 width, height = 220, 220
 print('Capturando as faces...')
 
 # Create directory para salvar on images
-os.makedirs('fotos')
+if not os.path.exists('fotos'):
+    os.makedirs('fotos')
 
 while (True):
     conect, image = video_capture.read()
@@ -57,7 +60,7 @@ while (True):
                 # if np.average(gray) > 110:
 
                 face_off = cv2.resize(gray[y:y + h, x:x + w], (width, height))
-                cv2.imwrite('fotos/pessoa.' + str(id) + '.' + str(increment) + '.jpg', face_off)
+                cv2.imwrite(f'fotos/pessoa.{str(id)}.{str(name)}.{str(sec_id)}.{str(increment)}.jpg', face_off)
 
                 print('[Foto ' + str(increment) + ' capturada com sucesso] - ', np.average(gray))
                 increment += 1
