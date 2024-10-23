@@ -52,18 +52,14 @@ while (True):
             cv2.rectangle(region, (ox, oy), (ox+ow, oy+oh), (0, 0, 255), 2)
 
             # Salvando imagem com respectivo id para treinamento
-            if cv2.waitKey(1) & 0xFF == ord('q'):
-                '''
-                    Caso queira colocar um delimitador para capturar apenas
-                    imagens com uma boa qualidade de luz descomente a linha abaixo
-                '''
-                # if np.average(gray) > 110:
+            if cv2.waitKey(1) & 0xFF == ord('q'):               
+                if np.average(gray) > 110: #Delimitador para capturar apenas imagens com uma boa qualidade de luz
 
-                face_off = cv2.resize(gray[y:y + h, x:x + w], (width, height))
-                cv2.imwrite(f'fotos/pessoa.{str(id)}.{str(name)}.{str(sec_id)}.{str(increment)}.jpg', face_off)
+                    face_off = cv2.resize(gray[y:y + h, x:x + w], (width, height))
+                    cv2.imwrite(f'fotos/pessoa.{str(id)}.{str(name)}.{str(sec_id)}.{str(increment)}.jpg', face_off)
 
-                print('[Foto ' + str(increment) + ' capturada com sucesso] - ', np.average(gray))
-                increment += 1
+                    print('[Foto ' + str(increment) + ' capturada com sucesso] - ', np.average(gray))
+                    increment += 1
 
     cv2.imshow('Face', image)
     cv2.waitKey(1)

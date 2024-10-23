@@ -88,9 +88,13 @@ while (True):
             cv2.putText(imagem, "Nivel de seguranca: " + str(sec_id), (x, y + (h + 43)), font, 1, (0, 0, 255))
             if str(sec_id) in ('2', '3'):
                 if str(sec_id) == '3':
-                    cv2.putText(imagem, "Acesso Liberado e cafe de graca", (x, y + (h + 81)), font, 1, (255, 0, 255))
+                    cv2.putText(imagem, "Acesso Liberado - Diretor", (x, y + (h + 81)), font, 1, (255, 0, 255))
                 else:
-                    cv2.putText(imagem, "Acesso Liberado", (x, y + (h + 81)), font, 1, (255, 0, 0))
+                    if str(sec_id) == '2':
+                        cv2.putText(imagem, "Acesso Liberado - Funcionario", (x, y + (h + 81)), font, 1, (255, 0, 255))
+                    else:
+                        cv2.putText(imagem, "Acesso Liberado - Visitante", (x, y + (h + 81)), font, 1, (255, 0, 0))
+                        
             cv2.putText(imagem, str(confianca), (x, y + (h + 62)), font, 1, (0, 0, 255))
 
     # Mostrando frame

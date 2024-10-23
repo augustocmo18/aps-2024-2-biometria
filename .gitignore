@@ -125,4 +125,5 @@ detectimages/
 fotos_retiradas/
 .vscode/
 .idea/
+fotos/
 # End of https://www.gitignore.io/api/pycharm,virtualenv,visualstudiocode

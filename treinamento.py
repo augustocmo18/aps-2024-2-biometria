@@ -2,10 +2,8 @@ import cv2
 import os
 import numpy as np
 
-# Usando 3 algoritmos de face detect
+# Usando o algoritmo de face detect
 eigenface = cv2.face.EigenFaceRecognizer_create()
-fisherface = cv2.face.FisherFaceRecognizer_create()
-lbph = cv2.face.LBPHFaceRecognizer_create()
 
 def getImageWithId():
     '''
@@ -21,9 +19,9 @@ def getImageWithId():
     for pathImage in pathsImages:
         imageFace = cv2.cvtColor(cv2.imread(pathImage), cv2.COLOR_BGR2GRAY)
         parts = os.path.split(pathImage)[-1].split('.')
-        id = int(parts[1])  # Assuming id is at index 1
-        name = parts[2]      # Assuming name is at index 2
-        sec_id = int(parts[3])  # Assuming sec_id is at index 3
+        id = int(parts[1])  
+        name = parts[2]      
+        sec_id = int(parts[3])  
 
         ids.append(id)
         names.append(name)
@@ -41,10 +39,3 @@ ids, faces, names, sec_ids = getImageWithId()
 print("Treinando....")
 eigenface.train(faces, ids)
 eigenface.write('classifier/classificadorEigen.yml')
-
-#fisherface.train(faces, ids)
-#fisherface.write('classifier/classificadorFisher.yml')
-
-lbph.train(faces, ids)
-lbph.write('classifier/classificadorLBPH.yml')
-print('Treinamento concluído com sucesso!')
