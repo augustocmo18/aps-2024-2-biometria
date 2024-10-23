@@ -1,5 +1,5 @@
-# Reconhecimento Facil OpenCV
-Projeto de reconhecimento facil com OpenCV - após treinamento das faces pelo algoritmo será capaz de fazer a detecção por frame
+# Reconhecimento Facial OpenCV
+Projeto de reconhecimento facial com OpenCV - após treinamento das faces pelo algoritmo será capaz de fazer a detecção por frame
 
 ## Começando
 Primeiro será necessário realizar a detecção da face e capturar as fotos para o treinamento executando o "dectect_face.py"
