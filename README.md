@@ -20,7 +20,7 @@ python -m venv venv
 Ative sua virtual env
 
 ```
-source venv/bin/active
+source venv/Scripts/activate
 ```
 
 Use o PIP, gerenciador de pacotes do Python para instalar todos os requisitos
